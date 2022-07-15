@@ -8,9 +8,11 @@
 function timerStatus(remainingMins) {
     if (remainingMins === undefined ) {
         return "You didn't set a timer!"
-    } else if (remainingMins <= 0) {
+    }
+    if (remainingMins <= 0) {
         return "Phil's cake is ready!"
-    } else if (remainingMins > 0) {
+    }
+    if (remainingMins > 0) {
         return "The cake is still baking!"
     }
 }
@@ -54,13 +56,22 @@ function calculateQuantities(ingredients, layers) {
         eggs: 0
     }
 
-    ingredients.forEach(function (ingredient) {
-        if (ingredient === 'sugar') {
-            ingredientAmounts.sugar += 100 * layers
-        } if (ingredient === 'eggs') {
-            ingredientAmounts.eggs += 2 * layers
-        }
-    })
+    // ingredients.forEach(function (ingredient) {
+    //     if (ingredient === 'sugar') {
+    //         ingredientAmounts.sugar += 100 * layers
+    //     }
+    //     if (ingredient === 'eggs') {
+    //         ingredientAmounts.eggs += 2 * layers
+    //     }
+    // })
+
+    if (ingredients.includes('sugar')) {
+        ingredientAmounts.sugar += 100 * layers
+    }
+
+    if (ingredients.includes('eggs')) {
+        ingredientAmounts.eggs += 2 * layers
+    }
 
     return ingredientAmounts
 }
