@@ -24,14 +24,13 @@ function timerStatus(remainingMins) {
 // If no prep time per ingredient is provided, the function should assume each ingredient
 // takes 2 minutes to prepare
 
-function estimatePrepTime(ingredients, prepTime) {
-    if (prepTime === undefined ) {
-        prepTime = 2
-    }
+function estimatePrepTime(ingredients, prepTime = 2) { // Default value set for prepTime
+    // if (prepTime === undefined ) {
+    //     prepTime = 2
+    // }
 
     return ingredients.length * prepTime
 }
-
 
 // 3. Phil needs to know the quantity of milk and eggs to use! Create a function
 // named calculateQuantities which accepts two parameters:
@@ -58,14 +57,13 @@ function calculateQuantities(ingredients, layers) {
     ingredients.forEach(function (ingredient) {
         if (ingredient === 'sugar') {
             ingredientAmounts.sugar += 100 * layers
-        } else if (ingredient === 'eggs') {
+        } if (ingredient === 'eggs') {
             ingredientAmounts.eggs += 2 * layers
         }
     })
 
     return ingredientAmounts
 }
-
 
 // 4. Phil's cake is pretty small and only provides 1 portion. He wants to make a bigger one!
 // Create a function named improveRecipe that accepts two parameters:
